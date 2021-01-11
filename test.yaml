@@ -1,0 +1,7 @@
+one:
+  database:
+    type: 123
+    one: one
+    password: password
+    user: user
+    address: address
