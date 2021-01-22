@@ -1,7 +1,86 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
+
+//冒泡排序
+//稳定排序，平均复杂O(n^2) 最优 O(n)
+
+//初始版本
+func Bubble(array []int)  {
+	//次数小于长度-1，因为内层循环会+1
+	for i:=0;i<len(array)-1;i++{
+		for j:=0;j<len(array)-i-1;j++{
+			if array[j]>array[j+1]{
+				array[j],array[j+1] = array[j+1],array[j]
+			}
+		}
+	}
+}
+
+//优化方式1,增加flag判断
+func BubbleOne(array []int)  {
+	flag:=false
+	for i:=0;i<len(array)-1;i++{
+		flag = false
+
+		for j:=0;j<len(array)-i-1;j++{
+			if array[j]>array[j+1]{
+				array[j],array[j+1] = array[j+1],array[j]
+				flag = true
+			}
+		}
+		//未执行则已经有序
+		if !flag{
+			return
+		}
+	}
+}
+
+//优化方式2，在1的基础上
+//增加position记录最后交换的位置j，下次不再判断后面的数字
+func Bubbletwo(array []int) {
+	//加入flag,判断是否提前结束
+	flag:=false
+	length:=len(array)-1
+	//记录最后一次交换的位置，后面没有交换，为有序
+	position:=0
+	for i:=0;i<len(array)-1;i++{
+		flag = false
+		for j:=0;j<length;j++ {
+			if array[j]>array[j+1]{
+				array[j],array[j+1] = array[j+1],array[j]
+				flag = true
+				position = j//记录最后一次交换次数
+			}
+			fmt.Printf("外层%d，内层%d\n",i,j)
+		}
+		if !flag{
+			break
+		}
+		length  = position
+	}
+}
+
+
+//选择排序，选择最小和开始交换
+//好坏平均复杂度 O(n^2) 不稳定
+func SelectSort(array []int)  {
+	index:=0
+	for i:=0;i<len(array)-1;i++{
+		index =  i
+		for j:=i+1;j<len(array);j++{
+			//比最小的小，则更新最小index
+			if array[index]>array[j]{
+				index = j
+			}
+		}
+		//交换
+		array[i],array[index]=array[index],array[i]
+	}
+}
 
 //插入排序  稳定排序  时间O(n^2)
 func Inserts(nums []int,n int)  {
@@ -19,13 +98,14 @@ func Inserts(nums []int,n int)  {
 	}
 }
 
+
 //快排	不稳定排序  O(nlogn)  还有多路快排优化
 //j = len(array)-1
 func Fast(array []int,i,j int)  {
 	left:=i
 	right:=j
 	//超出范围 退出，递归停止条件
-	if left>right{
+	if left>=right{
 		return
 	}
 
@@ -98,7 +178,6 @@ func merge(left,right []int) []int {
 			j++
 		}
 	}
-
 	return res
 }
 
@@ -109,19 +188,18 @@ func merge(left,right []int) []int {
 
 //堆排序   不稳定  时间复杂O(nlogn)
 func HeapSort (array []int)  {
-	length:=len(array)-1
+
 	//建堆，从后向前建立堆
-	for i:=len(array)/2;i>=0;i--{
-		sink(array,i,length)
+	for i:=len(array)/2-1;i>=0;i--{
+		sink(array,i,len(array))
 	}
 
-	for i:=length;i>=0;i--{
-		array[0],array[i] = array[i],array[0]
-		sink(array,0,i-1)
+	//互换并继续维护堆
+	for j:=len(array)-1;j>=0;j--{
+		array[0],array[j] = array[j],array[0]
+		sink(array,0,j-1)
 	}
 }
-
-
 
 //下沉，堆排序最关键堆核心
 //想得到从小到大的数据，需要大顶堆，最大放在结尾，最后是小到大顺序
@@ -133,41 +211,94 @@ func sink(array []int,start ,length int)  {
 		if next>length{
 			break
 		}
-
 		//找最大的值和上层互换
 		if next+1<length&&array[next+1]>array[next]{
 			next++
 		}
-
 		//上层已经大于下面，不用下沉，直接退出循环
-		if array[start]>=array[next]{
+		if array[start]<array[next]{
+			//互换后继续寻找，可能继续下沉
+			array[start],array[next] = array[next],array[start]
+			start = next
+		}else{
 			break
 		}
-		//互换后继续寻找，可能继续下沉
-		array[start],array[next] = array[next],array[start]
-
-		start = next
 	}
+
+}
+
+
+
+
+
+func HeapSorts(nums []int)  {
+
+	N:=len(nums)-1
+	//从底部到顶部构建大顶堆，最后一个非叶子节点开始
+	for i:=N/2;i>=0;i--{
+		sinks(nums,i,N)
+	}
+
+	//将堆顶值和末尾交换，重新调整堆
+	for i:=N;i>=0;i--{
+		wap(nums,0,i)
+		sinks(nums,0,i-1)//交换之后，数组最后一位不算在堆内，需要减1操作
+	}
+
+	//不同写法，结果一样
+	/*for N>=0{
+	    wap(nums,0,N)
+	    N--
+	    sink(nums,0,N)
+	}*/
+}
+
+func sinks(nums []int,k,N int)  {
+	for{
+		i:=2*k+1
+		if i>N{
+			break
+		}
+		//找左右子节点最大值
+		if i+1<=N&&nums[i+1]>nums[i]{
+			i++
+		}
+		//已经大于最大值，不需要再交换
+		if nums[k]>=nums[i]{
+			break
+		}
+		wap(nums,k,i)
+		k = i //继续向上调整
+	}
+}
+
+func wap(nums []int,x,y int){
+	nums[x],nums[y] = nums[y],nums[x]
 }
 
 
 func main()  {
 	array:=[]int{2,1,5,8,5,6,3,2,7}
+//	arr:=[]int{1,2,2,3,5,5,6,7,8}
 	//arra:=[]int{2,1,5,8}
 	//insertSort(array,9)
 	//Fast(array,0,8)
     //CreateHeap(array)
 	//Inserts(array,9)
 
-	//res:=MergeSort(array)
-	HeapSort(array)
+	//SelectSort(array)
 	fmt.Println(array)
 
+	//res:=MergeSort(array)
+	Fast(array,0,len(array)-1)
+	fmt.Println(array)
 
-	fmt.Println(array[:len(array)])
+	//fmt.Println(array[:len(array)])
 
 	one:="我来测试"
 	fmt.Println(len(one))
 	fmt.Println(len([]rune(one)))
+
+
 
 }
