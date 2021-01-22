@@ -1,25 +1,90 @@
-package Tree
+package main
 
+import "fmt"
 
-//树基本结构
+//树基本节点结构
 type Node struct {
 	val int
 	left *Node
 	right *Node
 }
 
+//树根,可用可不用
+type Tree struct {
+	root *Node
+}
 
-//创建二叉搜索树
-func Search()  {
+
+//层序构建二叉树 结合三种遍历方式，方便进行检测  
+func LevelCreate(root *Node)  {
 
 }
 
-//不同的创建方式
-//数组包含
-func Create(root *Node,array []int)*Node  {
-
+//创建二叉搜索树  根大于左小于右
+func SearchInit(root *Node,value int)  {
+	if root==nil{
+		return
+	}
+	node:=new(Node)
+	node.val  = value
+	tmp:=root
+	for tmp!=nil{
+		//value 小于当前去左子树找
+		if value<tmp.val{
+			if tmp.left==nil{
+				tmp.left = node
+				return
+			}else{
+				tmp = tmp.left
+			}
+		}else{//否则去右子树找
+			if tmp.right==nil{
+				tmp.right= node
+				return
+			}else{
+				tmp = tmp.right
+			}
+		}
+	}
 }
 
+
+//前中序恢复二叉树
+
+
+//中后续恢复二叉树
+
+
+
+//中序非递归遍历 //递归简单
+func MidPr(root *Node)[]int  {
+	res:=make([]int,0)
+	stack:=make([]*Node,0)
+	tmp:=root
+
+	for tmp!=nil||len(stack)!=0{
+		for tmp!=nil{
+			stack = append(stack,tmp)
+			tmp = tmp.left
+		}
+		
+		if len(stack)!=0{
+			cur:=stack[len(stack)-1]
+			stack = stack[:len(stack)-1]
+
+			res = append(res,cur.val)
+			if cur.right!=nil{
+				tmp = cur.right
+			}
+		}
+	}
+	return res
+}
+
+//后续非递归遍历
+func PostOrder(root *Node)  {
+
+}
 
 //层序遍历
 func FourPr(root *Node)[][]int  {
@@ -56,9 +121,43 @@ func OtherPr(root *Node)[][]int  {
 	//两个栈，左右分别放
 
 	var res [][]int
-	var sta1,sta2 []int
-	
+	var ret []int
+	var sta1,sta2 []*Node
+	sta1 = append(sta1,root)
+	for len(sta1)!=0||len(sta2)!=0{
 
+		ret =make([]int,0)
+		for len(sta1)!=0{
+			tmp:= sta1[len(sta1)-1]
+			sta1 = sta1[:len(sta1)-1]
+			if tmp==nil{
+				continue
+			}
+				ret = append(ret,tmp.val)
+				sta2 = append(sta2,tmp.left)
+				sta2 = append(sta2,tmp.right)
+		}
+		if len(ret)>0{
+			res = append(res,ret)
+		}
+
+		ret = make([]int,0)
+		for len(sta2)!=0{
+			tmp:=sta2[len(sta2)-1]
+			sta2 = sta2[:len(sta2)-1]
+			//记得判空
+			if tmp==nil{
+				continue
+			}
+			ret = append(ret,tmp.val)
+			sta1 = append(sta1,tmp.right)
+			sta1 = append(sta1,tmp.left)
+		}
+		if len(ret)>0{
+			res = append(res,ret)
+		}
+	}
+	return res
 }
 
 //二叉树镜像，递归，非递归方式
@@ -136,9 +235,11 @@ func DepthIteration(root *Node) int {
 		ret=make([]int,0)
 		n:=len(queue)
 
-		for i:=0;i<n;i++{
-			tmp:=queue[i]
-			queue:=queue[1:]
+		for n>0{
+			n--
+			//每次去除队列顶部元素
+			tmp:=queue[0]
+			queue =queue[1:]
 			ret = append(ret,tmp.val)
 			if tmp.left!=nil{
 				queue = append(queue,tmp.left)
@@ -152,3 +253,29 @@ func DepthIteration(root *Node) int {
 	return count
 }
 
+func main()  {
+	//创建树
+	tree:=new(Node)
+	tree.val =5
+		array:=[]int{3,2,4,7,6,8}
+		for _,v:=range array{
+			SearchInit(tree,v)
+		}
+	//之字形遍历
+	st:=OtherPr(tree)
+	fmt.Println(st)
+
+	//中序非递归
+	mid:=MidPr(tree)
+	fmt.Println(mid)
+
+	//镜像反转
+	MirrorIteration(tree)
+	MirrorRecursive(tree)
+
+
+	//递归求深度
+	fmt.Println(DepthRecursive(tree))
+	//迭代求深度
+	fmt.Println(DepthIteration(tree))
+}
