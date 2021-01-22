@@ -1,14 +1,25 @@
-package main
+package Tree
 
+
+//树基本结构
 type Node struct {
 	val int
 	left *Node
 	right *Node
 }
 
+
+//创建二叉搜索树
+func Search()  {
+
+}
+
+//不同的创建方式
+//数组包含
 func Create(root *Node,array []int)*Node  {
 
 }
+
 
 //层序遍历
 func FourPr(root *Node)[][]int  {
@@ -40,7 +51,7 @@ func FourPr(root *Node)[][]int  {
 }
 
 
-//之字型遍历
+//二叉树之字型遍历
 func OtherPr(root *Node)[][]int  {
 	//两个栈，左右分别放
 
@@ -62,14 +73,35 @@ func MirrorRecursive(root *Node)  {
 }
 
 //迭代镜像
-func MirrorIteration(root *Node)  {
-
+//bfs队列遍历每个非叶子节点，交换它们的子节点
+func MirrorIteration(root *Node) *Node {
+	if root==nil{
+		return nil
+	}
+	queue:=make([]*Node,0)
+	queue  = append(queue,root)
+	for len(queue)!=0{
+		tmp:=queue[0]
+		queue = queue[1:]
+		//叶子节点不计算
+		if tmp.left==nil&&tmp.right==nil{
+			continue
+		}
+		//更换左右子树
+		tmp.left,tmp.right = tmp.right,tmp.left
+		if tmp.left!=nil{
+			queue = append(queue,tmp.left)
+		}
+		if tmp.right!=nil{
+			queue = append(queue,tmp.right)
+		}
+	}
+	return root
 }
 
 
 //二叉树深度递归
 //最大值
-
 func Max(x,y int)int  {
 	if x>y{
 		return x
@@ -78,7 +110,7 @@ func Max(x,y int)int  {
 	}
 }
 
-//递归会很快
+//递归写起来简单
 func DepthRecursive(root *Node)int  {
 	if root==nil{
 		return 0

@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-//前缀树
+//前缀树/字典树
 
 type Node struct {
 	Next [26]*Node
@@ -67,5 +67,4 @@ func main()  {
 	fmt.Println(Search("apple",root))
 	fmt.Println(Search("app",root))
 	fmt.Print(StartsWith("app",root))
-
 }
