@@ -120,6 +120,8 @@ func Fast(array []int,i,j int)  {
 		}
 		array[right] = array[left]
 	}
+	count++
+	fmt.Println("time",count)
 	array[left] = tmp
 	Fast(array,i,left-1)
 	Fast(array,left+1,j)
@@ -277,8 +279,40 @@ func wap(nums []int,x,y int){
 }
 
 
+var count int
+//三路快排，分三部分，1小于tmp部分，等于tmp部分，大于tmp部分
+func FastThree(array []int,low,high int){
+	i:=low
+	j:=low
+	tmp:=array[low]
+	k:=high
+	if low>=high{
+		return
+	}
+	//此处为k
+	for i<=k{
+		if array[i]<tmp{
+			//小于部分和前面等于的最左边互换，然后当前位置不比较，++
+			array[i],array[j] = array[j],array[i]
+			i++
+			j++
+		}else if array[i]>tmp{
+			//大于的放在右边，然后i不加，因为更换位置后此处的大小未知
+			array[k],array[i] = array[i],array[k]
+			k--
+		}else{
+			i++
+		}
+	}
+	count++
+	fmt.Println("time",count)
+	FastThree(array,low,j-1)
+	FastThree(array,k+1,high)
+}
+
+
 func main()  {
-	array:=[]int{2,1,5,8,5,6,3,2,7}
+	array:=[]int{2,1,4,4,5,4,3,2,7}
 //	arr:=[]int{1,2,2,3,5,5,6,7,8}
 	//arra:=[]int{2,1,5,8}
 	//insertSort(array,9)
@@ -290,7 +324,7 @@ func main()  {
 	fmt.Println(array)
 
 	//res:=MergeSort(array)
-	Fast(array,0,len(array)-1)
+	FastThree(array,0,len(array)-1)
 	fmt.Println(array)
 
 	//fmt.Println(array[:len(array)])
@@ -298,7 +332,5 @@ func main()  {
 	one:="我来测试"
 	fmt.Println(len(one))
 	fmt.Println(len([]rune(one)))
-
-
 
 }
