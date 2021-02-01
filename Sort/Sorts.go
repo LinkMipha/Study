@@ -190,10 +190,9 @@ func merge(left,right []int) []int {
 
 //堆排序   不稳定  时间复杂O(nlogn)
 func HeapSort (array []int)  {
-
 	//建堆，从后向前建立堆
-	for i:=len(array)/2-1;i>=0;i--{
-		sink(array,i,len(array))
+	for i:=len(array)/2;i>=0;i--{
+		sink(array,i,len(array)-1)
 	}
 
 	//互换并继续维护堆
@@ -206,32 +205,26 @@ func HeapSort (array []int)  {
 //下沉，堆排序最关键堆核心
 //想得到从小到大的数据，需要大顶堆，最大放在结尾，最后是小到大顺序
 func sink(array []int,start ,length int)  {
-
 	for{
 		next:=2*start+1
 		//超出范围 退出循环
 		if next>length{
 			break
 		}
-		//找最大的值和上层互换
-		if next+1<length&&array[next+1]>array[next]{
+		//找最大的值和上层互换  <=length很关键
+		if next+1<=length&&array[next+1]>array[next]{
 			next++
 		}
 		//上层已经大于下面，不用下沉，直接退出循环
-		if array[start]<array[next]{
-			//互换后继续寻找，可能继续下沉
-			array[start],array[next] = array[next],array[start]
-			start = next
-		}else{
+		if array[start]>array[next]{
 			break
+
 		}
+		//互换后继续寻找，可能继续下沉
+		array[start],array[next] = array[next],array[start]
+		start = next
 	}
-
 }
-
-
-
-
 
 func HeapSorts(nums []int)  {
 
@@ -312,7 +305,7 @@ func FastThree(array []int,low,high int){
 
 
 func main()  {
-	array:=[]int{2,1,4,4,5,4,3,2,7}
+	array:=[]int{22, 56, 38, 101, 1, 18, 20, 30}
 //	arr:=[]int{1,2,2,3,5,5,6,7,8}
 	//arra:=[]int{2,1,5,8}
 	//insertSort(array,9)
@@ -324,7 +317,8 @@ func main()  {
 	fmt.Println(array)
 
 	//res:=MergeSort(array)
-	FastThree(array,0,len(array)-1)
+	//FastThree(array,0,len(array)-1)
+	HeapSort(array)
 	fmt.Println(array)
 
 	//fmt.Println(array[:len(array)])

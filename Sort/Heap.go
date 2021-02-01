@@ -8,7 +8,6 @@ func Sink(nums[]int,i int,length int)  {
 		if start>length{
 			break
 		}
-
 		if start+1<=length&&nums[start+1]>nums[start]{
 			start++
 		}
@@ -36,13 +35,12 @@ func Init(nums []int)  {
 		Wap(nums,0,i)
 		Sink(nums,0,i-1)
 	}
-
-
 }
 
 func main()  {
-	s := []int{-1,9, 0, 6, 5, 8, 2, 1, 7, 4, 3}
-	fmt.Println(s)
-	Init(s)
-	fmt.Println(s)
+	//s := []int{-1,9, 0, 6, 5, 8, 2, 1, 7, 4, 3}
+	arr:=[]int{2,1,4,4,5,4,3,2,7}
+	fmt.Println(arr)
+	Init(arr)
+	fmt.Println(arr)
 }

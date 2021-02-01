@@ -235,6 +235,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[198]打家劫舍.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[198]打家劫舍.go" />
+              <option name="questionId" value="198" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[19]删除链表的倒数第N个节点.go">
           <value>
             <LeetcodeEditor>
@@ -259,6 +267,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[20]有效的括号.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[20]有效的括号.go" />
+              <option name="questionId" value="20" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[210]课程表 II.go">
           <value>
             <LeetcodeEditor>
@@ -272,6 +288,14 @@
             <LeetcodeEditor>
               <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[214]最短回文串.go" />
               <option name="questionId" value="214" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[215]数组中的第K个最大元素.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[215]数组中的第K个最大元素.go" />
+              <option name="questionId" value="215" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -331,6 +355,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[23]合并K个升序链表.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[23]合并K个升序链表.go" />
+              <option name="questionId" value="23" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[240]搜索二维矩阵 II.go">
           <value>
             <LeetcodeEditor>
@@ -339,11 +371,35 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[258]各位相加.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[258]各位相加.go" />
+              <option name="questionId" value="258" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[25]K 个一组翻转链表.go">
           <value>
             <LeetcodeEditor>
               <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[25]K 个一组翻转链表.go" />
               <option name="questionId" value="25" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[260]只出现一次的数字 III.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[260]只出现一次的数字 III.go" />
+              <option name="questionId" value="260" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[262]行程和用户.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[262]行程和用户.go" />
+              <option name="questionId" value="262" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -360,6 +416,22 @@
             <LeetcodeEditor>
               <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[297]二叉树的序列化与反序列化.go" />
               <option name="questionId" value="297" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[300]最长递增子序列.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[300]最长递增子序列.go" />
+              <option name="questionId" value="300" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[301]删除无效的括号.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[301]删除无效的括号.go" />
+              <option name="questionId" value="301" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -384,6 +456,14 @@
             <LeetcodeEditor>
               <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[321]拼接最大数.go" />
               <option name="questionId" value="321" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[322]零钱兑换.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[322]零钱兑换.go" />
+              <option name="questionId" value="322" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -432,6 +512,14 @@
             <LeetcodeEditor>
               <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[402]移掉K位数字.go" />
               <option name="questionId" value="402" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[407]接雨水 II.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[407]接雨水 II.go" />
+              <option name="questionId" value="407" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -531,11 +619,27 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[518]零钱兑换 II.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[518]零钱兑换 II.go" />
+              <option name="questionId" value="518" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[51]N 皇后.go">
           <value>
             <LeetcodeEditor>
               <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[51]N 皇后.go" />
               <option name="questionId" value="51" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[53]最大子序和.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[53]最大子序和.go" />
+              <option name="questionId" value="53" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -723,6 +827,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[剑指 Offer 21]调整数组顺序使奇数位于偶数前面.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[剑指 Offer 21]调整数组顺序使奇数位于偶数前面.go" />
+              <option name="questionId" value="100291" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[剑指 Offer 24]反转链表.go">
           <value>
             <LeetcodeEditor>
@@ -843,6 +955,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[剑指 Offer 59 - I]滑动窗口的最大值.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[剑指 Offer 59 - I]滑动窗口的最大值.go" />
+              <option name="questionId" value="100336" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[剑指 Offer 60]n个骰子的点数.go">
           <value>
             <LeetcodeEditor>
@@ -880,6 +1000,14 @@
             <LeetcodeEditor>
               <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[面试题 16.06]最小差.go" />
               <option name="questionId" value="100262" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Downloads/code/leetcode/editor/cn/[面试题 17.09]第 k 个数.go">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$USER_HOME$/Downloads/code/leetcode/editor/cn/[面试题 17.09]第 k 个数.go" />
+              <option name="questionId" value="1000037" />
             </LeetcodeEditor>
           </value>
         </entry>

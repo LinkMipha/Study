@@ -47,13 +47,43 @@ func TestFastSort(sum []int,start,end int){
 	TestFastSort(sum,low+1,end)
 }
 
+func Create(array []int)  {
+	for i:=len(array)/2-1;i>=0;i--{
+		sink(array,i,len(array)-1)
+	}
+
+	for i:=len(array)-1;i>=0;i--{
+		array[0],array[i] = array[i],array[0]
+		sink(array,0,i-1)
+	}
+}
+
+func sink(array []int,start int,length int)  {
+	for {
+		next:=2*start+1
+		if next>length{
+			break
+		}
+		if next+1<=length&&array[next+1]>array[next]{
+			next++
+		}
+		if array[start]>array[next]{
+			break
+		}
+		array[start],array[next] = array[next],array[start]
+		start = next
+	}
+}
 
 func main()  {
 	list := []int{22, 56, 38, 101, 1, 18, 20, 30}
 	fmt.Println("排序前", list)
-	TestFastSort(list,0,len(list)-1)
+	Create(list)
+	//TestFastSort(list,0,len(list)-1)
 	//fast(list,0,len(list)-1)
 	fmt.Println("排序后", list)
+
+
 }
 
 func fast(st []int,l,r int)  {
