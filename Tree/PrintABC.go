@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 var one= make(chan int,1)
@@ -33,6 +34,7 @@ func PrIntB()  {
 }
 
 func Three(c1 chan bool,c2 chan bool,str string)  {
+	//defer group.Done()
 	//value 和 真假
 	if _,ok:=<-c1;ok{
 		fmt.Println(str)
@@ -42,13 +44,37 @@ func Three(c1 chan bool,c2 chan bool,str string)  {
 
 func main()  {
 	//启动信号
-	one<-1
+	//one<-1
 	//group.Add(2)
 	go PrintA()
 	go PrIntB()
 	//group.Wait()
-	<-end
+	//<-end
 	fmt.Println(CheckCheat(50,80))
+
+	var c1 = make(chan bool,1)
+	var c2  = make(chan bool)
+	var c3  = make(chan bool)
+
+
+	defer func() {
+		close(c1)
+		close(c2)
+		close(c3)
+	}()
+
+	c1<-true
+
+	//var group sync.WaitGroup
+	//group.Add(10000)
+	for range make([]struct{},10){
+		go Three(c1,c2,"a")
+		go Three(c2,c3,"b")
+		go Three(c3,c1,"c")
+	}
+
+	 time.Sleep(10*time.Second)
+	//group.Wait()
 
 }
 

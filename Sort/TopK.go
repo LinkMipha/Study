@@ -66,6 +66,32 @@ func sink(array []int,start,length int)  {
 	}
 }
 
+
+
+//二维快排
+
+func fast(arr [][]int,low,high int)  {
+	start:=low
+	end:=high
+	if start>end{
+		return
+	}
+	tmp:=arr[low]
+	for start<end{
+		for start<end&&arr[end][0]>=tmp[0]{
+			end--
+		}
+		arr[start] = arr[end]
+		for start<end&&arr[start][0]<=tmp[0]{
+			start++
+		}
+		arr[end] = arr[start]
+	}
+	arr[start] = tmp
+	fast(arr,low,start-1)
+	fast(arr,start+1,high)
+}
+
 func main()  {
 	array:=[]int{2,1,5,8,5,6,3,2,7}
 
@@ -83,12 +109,11 @@ func main()  {
 	Fast(array,0,len(array)-1)
 	fmt.Println(array)
 
-	test:=[]int{1,2,3}
-	two:=[]int{4,5,6}
-	two[0] = 9
+	st:=[][]int{{1,3},{2,6},{8,10},{15,18}}
+	fmt.Println(st)
+	fast(st,0,len(st)-1)
+	fmt.Println(st)
 
-	test = append(test,two...)
-	fmt.Println(test[:len(test)])
 
 }
 
