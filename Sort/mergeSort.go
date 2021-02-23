@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 )
 
@@ -70,6 +71,15 @@ func main()  {
 	//result  = Sorttwo(list)
 	Me1(list)
 	fmt.Println("排序后", result)
+	str:="[\"basic_info\",\"sports_level\",\"sports_data\",\"medals_info\",\"group_info\"]"
+	fmt.Println([]byte(str))
+	var parms_list []string
+	//自动解析，反序列很奇怪
+	err := json.Unmarshal([]byte(str), &parms_list)
+	if err!=nil{
+		fmt.Println("error Unmarshal %v",err.Error())
+	}
+	fmt.Println(parms_list)
 
 /*	reader:=bufio.NewReader(os.Stdin)
 	n,err:=reader.ReadString('\n')
@@ -85,8 +95,6 @@ func main()  {
 
 	ch := make(chan int ,2)
 	<- ch //阻塞main
-
-
 }
 
 func Sorttwo(nums []int) []int {
