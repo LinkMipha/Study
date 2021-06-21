@@ -14,9 +14,12 @@ type MorrisNode struct {
 func Morris(head *MorrisNode)  {
 	var cur *MorrisNode = head
 	for cur!=nil{
-		//找左子树最右
-		if cur.left!=nil{
-			var pre *MorrisNode = cur
+		if cur.left==nil{
+			fmt.Println(cur.val)
+			cur = cur.right
+		}else{
+			//找左子树最右
+			var pre = cur.left
 			for pre.right!=nil&&pre.right!=cur{
 				pre = pre.right
 			}
@@ -26,29 +29,49 @@ func Morris(head *MorrisNode)  {
 				cur = cur.left
 			}else{
 				pre.right=nil
-				cur = pre.right
+				cur = cur.right
 			}
 
-		}else{
-			fmt.Println(cur.val)
-			cur = cur.right
 		}
 	}
 }
 
+func MidMorris(head* MorrisNode)  {
+	var cur = head
+	for cur!=nil{
+		if cur.left==nil{
+			fmt.Println(cur.val)
+			cur =cur.right
+		}else{
+			//左最右
+			var pre = cur.left
+			for pre.right!=nil&&pre.right!=cur{
+				pre = pre.right
+			}
+			if pre.right==nil {
+				pre.right = cur
+				cur = cur.left
+			}else {
+				fmt.Println(cur.val)
+				pre.right = nil
+				cur = cur.right
+			}
+		}
+	}
+}
+
+func PostOrderMorris(head *MorrisNode) {
+
+}
+
 
 //初始化
-func TreeInit(arr []int,len int,index int)*MorrisNode{
+func TreeInit(arr []int,n int,index int)*MorrisNode{
 	var tree MorrisNode
-	tree.left = nil
-	tree.right = nil
-	if index<len&&arr[index]!=-1{
+	if index<n&&arr[index]!=-1{
 		tree.val = arr[index]
-		tree.left = TreeInit(arr,len,index*2+1)
-		tree.right = TreeInit(arr,len,index*2+2)
-	}
-	if tree.left==nil&&tree.right==nil{
-		return nil
+		tree.left = TreeInit(arr,len(arr),index*2+1)
+		tree.right = TreeInit(arr,len(arr),index*2+2)
 	}
 	return &tree
 }
@@ -67,9 +90,11 @@ func Prints(head *MorrisNode)  {
 func main()  {
 	arr:=[]int{1,2,3,4,5}
 	point:=TreeInit(arr,len(arr),0)
-	Prints(point)
-
+	//Prints(point)
 
 	//morris先序遍历
 	//Morris(point)
+
+	//midMorris
+	MidMorris(point)
 }
