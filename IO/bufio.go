@@ -7,8 +7,6 @@ import (
 	"strings"
 )
 
-
-
 func main() {
 	input := "foo  bar   baz"
 	scanner := bufio.NewScanner(strings.NewReader(input))

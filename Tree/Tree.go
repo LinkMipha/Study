@@ -13,7 +13,7 @@ type Tree struct {
 	left,right *Tree
 }
 
-func Create(root*Tree,val int)*Tree  {
+func Create(root*Tree,val int)*Tree {
 	root = new(Tree)
 	root.val = val
 	root.left = nil

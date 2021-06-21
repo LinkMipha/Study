@@ -87,6 +87,17 @@ func main()  {
 	fmt.Println(one)
 	one = make([]int,10)
 
+
+
+	//Slice自定义排序方法
+	fmt.Println("Slice自定义排序方法")
+	res:= []string{"123","456","345","234","789"}
+	sort.Slice(res, func(i, j int) bool {
+		//前大于后则不互换
+		return res[i]>res[j]
+	})
+	fmt.Println(res)
+
 }
 
 var sy sync.WaitGroup
@@ -146,5 +157,4 @@ func removeDuplicateLetters(s string) string {
 		stack = append(stack,s[i])
 	}
 	return string(stack)
-
 }

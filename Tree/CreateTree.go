@@ -201,7 +201,7 @@ func MirrorIteration(root *Node) *Node {
 
 //二叉树深度递归
 //最大值
-func Max(x,y int)int  {
+func Max(x,y int)int{
 	if x>y{
 		return x
 	}else{
