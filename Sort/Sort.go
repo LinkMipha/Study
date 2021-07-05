@@ -63,7 +63,7 @@ func main()  {
 	fmt.Println(a)
 	b := []int{4,3,2,1,5,9,8,7,6}
 	st:=sort.IntSlice(b)
-	fmt.Println(st)
+	fmt.Println("st",st)
 	fmt.Println(a)
 	sort.Sort(sort.Reverse(sort.IntSlice(b)))
 	fmt.Println(b[:len(b)-1])

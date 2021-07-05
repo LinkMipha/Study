@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+
+//二叉树序列化和反序列化
 type TreeNode struct {
 	Val int
 	Left *TreeNode

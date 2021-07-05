@@ -1,8 +1,12 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "math"
+)
 
 func main()  {
-    str:="test"
-    fmt.Println(str.(string))
+    //str:="test"
+    a:=math.Pow(2,10)
+    fmt.Println(a)
 }

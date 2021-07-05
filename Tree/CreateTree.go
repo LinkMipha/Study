@@ -18,6 +18,7 @@ type Tree struct {
 //层序构建二叉树 结合三种遍历方式，方便进行检测  
 func LevelCreate(root *Node)  {
 
+
 }
 
 //创建二叉搜索树  根大于左小于右
