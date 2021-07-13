@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
 
 //想得到从小到大的排序结果，需要构建大顶堆，然后将堆顶最大值与最后的数据交换，
@@ -11,7 +10,7 @@ func HeapSort(nums []int)  {
 
 	N:=len(nums)-1
 	//从底部到顶部构建大顶堆，最后一个非叶子节点开始
-	for i:=N/2;i>=0;i--{
+	for i:=N/2-1;i>=0;i--{
 		sink(nums,i,N)
 	}
 
@@ -85,11 +84,12 @@ func Testheap(nums []int)  {
 }
 
 func main()  {
-	s := []int{-1,9, 0, 6, 5, 8, 2, 1, 7, 4, 3}
+	//s := []int{-1,9, 0, 6, 5, 8, 2, 1, 7, 4, 3}
+	s := []int{5, 9, 2, 8, 3, 7, 4, 6, 1}
 	fmt.Println(s)
-	//HeapSort(s)
+	HeapSort(s)
 	//Testheap(s)
-	sort.Ints(s)
+	//sort.Ints(s)
 	fmt.Println(s)
 	defer fmt.Println()
 
