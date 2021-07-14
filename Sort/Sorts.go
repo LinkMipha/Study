@@ -191,7 +191,7 @@ func merge(left,right []int) []int {
 //堆排序   不稳定  时间复杂O(nlogn)
 func HeapSort (array []int)  {
 	//建堆，从后向前建立堆
-	for i:=len(array)/2;i>=0;i--{
+	for i:=len(array)/2-1;i>=0;i--{
 		sink(array,i,len(array)-1)
 	}
 

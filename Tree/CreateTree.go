@@ -18,6 +18,7 @@ type Tree struct {
 //层序构建二叉树 结合三种遍历方式，方便进行检测  
 func LevelCreate(root *Node)  {
 
+
 }
 
 //创建二叉搜索树  根大于左小于右
@@ -201,7 +202,7 @@ func MirrorIteration(root *Node) *Node {
 
 //二叉树深度递归
 //最大值
-func Max(x,y int)int  {
+func Max(x,y int)int{
 	if x>y{
 		return x
 	}else{

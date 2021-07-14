@@ -63,7 +63,7 @@ func main()  {
 	fmt.Println(a)
 	b := []int{4,3,2,1,5,9,8,7,6}
 	st:=sort.IntSlice(b)
-	fmt.Println(st)
+	fmt.Println("st",st)
 	fmt.Println(a)
 	sort.Sort(sort.Reverse(sort.IntSlice(b)))
 	fmt.Println(b[:len(b)-1])
@@ -86,6 +86,17 @@ func main()  {
 	var one []int
 	fmt.Println(one)
 	one = make([]int,10)
+
+
+
+	//Slice自定义排序方法
+	fmt.Println("Slice自定义排序方法")
+	res:= []string{"123","456","345","234","789"}
+	sort.Slice(res, func(i, j int) bool {
+		//前大于后则不互换
+		return res[i]>res[j]
+	})
+	fmt.Println(res)
 
 }
 
@@ -146,5 +157,4 @@ func removeDuplicateLetters(s string) string {
 		stack = append(stack,s[i])
 	}
 	return string(stack)
-
 }
