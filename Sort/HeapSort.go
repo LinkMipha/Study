@@ -85,7 +85,8 @@ func Testheap(nums []int)  {
 }
 
 func main()  {
-	s := []int{-1,9, 0, 6, 5, 8, 2, 1, 7, 4, 3}
+	//s := []int{-1,9, 0, 6, 5, 8, 2, 1, 7, 4, 3}
+	s :=[]int{2,1}
 	fmt.Println(s)
 	//HeapSort(s)
 	//Testheap(s)

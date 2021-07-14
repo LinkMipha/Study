@@ -65,6 +65,22 @@ func main()  {
 	Add(res)
 	fmt.Println(res)
 
+
+	fmt.Println("**********************************************************************************")//分割线
+
+
+
+	//x = append(x,1)
+
+	var strs string
+	strs="abcde"
+	sss:=strs[5:]
+	fmt.Println(strs[5])
+	fmt.Println("sss"+sss)
+
+
+
+
 }
 
 func Add(res []int)  {

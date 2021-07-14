@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+//优先队列，参考源码
+
 type ListNode struct {
 	Val int
 	Next *ListNode
